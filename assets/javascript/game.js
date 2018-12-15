@@ -35,36 +35,26 @@ window.onload = function () {
         // the active letter the user is trying to guess
         var activeLetter = letterChoices[Math.floor(Math.random() * letterChoices.length)];
 
-        // var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-        //     'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-        //     't', 'u', 'v', 'w', 'x', 'y', 'z'
-        // ];
 
         console.log(activeLetter);
 
+        // check to see if user pressed a valid key
         if (letterChoices.indexOf(userKeyPress) > -1) {
 
-
+            // if the user guesses the letter right, increase wins, reset game by setting guessesLeft back to 9 and emptying lettersGuessedSoFar array.
             if (userKeyPress === activeLetter) {
                 wins++;
                 guessesLeft = 9;
                 guessesSoFar = [];
             }
 
-        //     if (userKeyPress != guessesSoFar){
-
-        //     if (userKeyPress != activeLetter) {
-        //         guessesLeft--;
-        //         guessesSoFar.push(userKeyPress);
-        //     }
-        // }
-
+            // if the user guess the letter wrong, decrease guessesLeft by 1 and push the letter into GuessesSoFar array.
             if (userKeyPress != activeLetter) {
                 guessesLeft--;
                 guessesSoFar.push(userKeyPress);
             }
 
-
+            // if user runs out of guess, losses increase by 1 and game resets. Set guessesLeft back to 9 and empty lettersGuessedSoFar array.
             if (guessesLeft === 0) {
 
                 guessesLeft = 9;
@@ -74,7 +64,7 @@ window.onload = function () {
             }
 
     
-
+            // Displays to html page
             winsTextElement.textContent = + wins;
             lossesTextElement.textContent = + losses;
             guessesLeftTextElement.textContent = + guessesLeft;
