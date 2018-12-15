@@ -49,10 +49,12 @@ window.onload = function () {
             }
 
             // if the user guess the letter wrong, decrease guessesLeft by 1 and push the letter into GuessesSoFar array.
-            if (userKeyPress != activeLetter) {
-                guessesLeft--;
+            if (userKeyPress != activeLetter && userKeyPress != guessesSoFar) {
+                guessesLeft--; 
                 guessesSoFar.push(userKeyPress);
             }
+
+
 
             // if user runs out of guess, losses increase by 1 and game resets. Set guessesLeft back to 9 and empty lettersGuessedSoFar array.
             if (guessesLeft === 0) {
